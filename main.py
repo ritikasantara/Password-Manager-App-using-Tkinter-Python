@@ -6,7 +6,7 @@ from tkinter import messagebox
 
 # Website and password search function
 
-def search():
+def find_password():
     try:
         with open("data.json", mode="r") as file:
             # reading old data
@@ -126,7 +126,7 @@ password_entry.grid(column=1, row=3, sticky="w")
 
 # Buttons
 
-search_button = Button(text="Search", command=search)
+search_button = Button(text="Search", command=find_password)
 search_button.grid(column=2, row=1, sticky="ew")
 
 generate_pass_button = Button(text="Generate Password", command=generate_password)
