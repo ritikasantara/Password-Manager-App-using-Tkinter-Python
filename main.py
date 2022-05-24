@@ -16,9 +16,9 @@ def search():
     else:
         website = website_name_entry.get()
         if website in data:
-            messagebox.showinfo(title="Website name and password", message=f"{website}\n{data[website]['password']}")
+            messagebox.showinfo(title="Website", message=f"Website: {website}\nPassword: {data[website]['password']}")
         else:
-            messagebox.showinfo(message="No details for the website exists.")
+            messagebox.showinfo(title="Error", message="No details for the website exists.")
 
     finally:
         file.close()
@@ -113,26 +113,26 @@ password_label = Label(text="Password: ")
 password_label.grid(row=3, column=0)
 
 # Entries
-website_name_entry = Entry(width=39)
-website_name_entry.grid(column=1, row=1, columnspan=2)
+website_name_entry = Entry(width=32)
+website_name_entry.grid(column=1, row=1, columnspan=2, sticky="w")
 website_name_entry.focus()
 
-email_entry = Entry(width=43)
-email_entry.grid(column=1, row=2, columnspan=2)
+email_entry = Entry(width=52)
+email_entry.grid(column=1, row=2, columnspan=2, sticky="w")
 email_entry.insert(0, "ritikasantara@gmail.com")
 
-password_entry = Entry(width=25)
-password_entry.grid(column=1, row=3)
+password_entry = Entry(width=32)
+password_entry.grid(column=1, row=3, sticky="w")
 
 # Buttons
 
-search_button = Button(text="Search", width=10, command=search)
-search_button.grid(column=2, row=1)
+search_button = Button(text="Search", command=search)
+search_button.grid(column=2, row=1, sticky="ew")
 
 generate_pass_button = Button(text="Generate Password", command=generate_password)
-generate_pass_button.grid(column=2, row=3)
+generate_pass_button.grid(column=2, row=3, sticky="ew")
 
 add_button = Button(text="Add", width=36, command=save_password)
-add_button.grid(column=1, row=4, columnspan=2)
+add_button.grid(column=1, row=4, columnspan=2, sticky="ew")
 
 window.mainloop()
